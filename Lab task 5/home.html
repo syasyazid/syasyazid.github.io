@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JTMK Department of Information and Communication Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery Mobile CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+  body, .ui-content {
+    margin: 0;
+    padding: 0;
+    background-image: url('background_image.jpg'); /* Replace with your actual image path */
+    background-size: cover;        /* Ensures the image covers the whole screen */
+    background-position: center;  /* Keeps the image centered */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    height: 100vh;                /* Ensures full viewport height */
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+
+    .custom-header {
+      background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+      color: white !important;
+      border: none !important;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-container span {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 6px 10px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+
+    /* Social Media Sidebar */
+    .social-sidebar {
+            position: fixed;
+            top: 65%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            border-radius: 0 10px 10px 0;
+            padding: 10px 5px;
+        }        
+
+        .social-sidebar a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.2s;
+        }
+
+        .social-sidebar a img:hover {
+            transform: scale(1.1);
+        }
+
+    .intro {
+      text-align: center;
+      padding: 80px 20px 60px 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .intro h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.5;
+    }
+
+    .intro a.ui-btn {
+      background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+      color: white !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      padding: 10px 30px;
+      text-transform: uppercase;
+    }
+
+    .custom-footer {
+      text-align: center;
+      padding: 10px;
+      background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div data-role="page" id="home">
+
+  <!-- Header -->
+  <div data-role="header" data-position="fixed" class="custom-header">
+    <div class="nav-bar">
+      <div class="logo-container">
+        <img src='logo_psp.png' alt="Logo" />
+        <span>JABATAN TEKNOLOGI MAKLUMAT & KOMUNIKASI</span>
+      </div>
+      <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media Sidebar -->
+  <div class="social-sidebar">
+    <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+    <a href="#"><img src="github.png" alt="GitHub"></a>
+    <a href="#"><img src="twitter.png" alt="Twitter"></a>
+    <a href="#"><img src="youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="instagram.png" alt="Instagram"></a>
+</div>
+
+  <!-- Main Content -->
+  <div role="main" class="ui-content">
+    <div class="intro">
+      <h1>HEY, MY NAME IS JTMK</h1>
+      <p>
+        JTMK is the Department of Information and Communication Technology (JTMK) offering DDT courses (Diploma in Information Technology (Digital Technology)) at Seberang Perai Polytechnic (PSP).
+      </p>
+      <a href="projects.html" class="ui-btn">Projects</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" class="custom-footer">
+    <h4>Copyright © DDT4C S2 2024/2025. All rights reserved.</h4>
+  </div>
+
+</div>
+
+</body>
+</html>

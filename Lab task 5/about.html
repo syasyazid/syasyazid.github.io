@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JTMK - About Us</title>
+
+  <!-- jQuery Mobile CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    /* General page styling */
+    body, .ui-content {
+      margin: 0;
+      padding: 0;
+      background-image: url('background_image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Fade-in animation for page load */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Header styling with gradient background */
+    .custom-header {
+      background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+      color: white !important;
+      border: none !important;
+    }
+
+    /* Navigation bar styling */
+    .nav-bar {
+      display: flex;
+      justify-content: center; /* Center the nav-content */
+      align-items: center;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Container for logo and nav links to control width and centering */
+    .nav-content {
+      display: flex;
+      justify-content: space-between; /* Space between logo and links */
+      align-items: center;
+      width: 100%;
+      max-width: 1200px; /* Match max-width of main content */
+      flex-wrap: wrap;
+    }
+
+    /* Logo container styling */
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-container span {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Navigation links styling */
+    .nav-links a {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 6px 10px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+
+    /* Social Media Sidebar */
+    .social-sidebar {
+            position: fixed;
+            top: 65%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            border-radius: 0 10px 10px 0;
+            padding: 10px 5px;
+        }        
+
+        .social-sidebar a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.2s;
+        }
+
+        .social-sidebar a img:hover {
+            transform: scale(1.1);
+        }
+
+    /* Footer styling with gradient background */
+    .custom-footer {
+      text-align: center;
+      padding: 10px;
+      background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+      color: white;
+    }
+
+    /* Team section layout */
+    .team-section {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: calc(100vh - 140px); /* Full height minus header/footer */
+    }
+
+    .team-section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      animation: slideIn 0.5s ease-out;
+    }
+
+    /* Slide-in animation for section header */
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Listview styling for team members */
+    .ui-listview {
+      margin: 20px auto; /* Consistent outer spacing */
+      width: 80%;
+      max-width: 1200px;
+      padding: 0 !important; /* Override jQuery Mobile default padding */
+    }
+
+    .ui-listview li {
+      background: linear-gradient(90deg, rgba(161, 140, 209, 0.8), rgba(251, 194, 235, 0.5));
+      border-radius: 10px;
+      margin-bottom: 15px !important; /* Enforce 15px spacing between items */
+      text-align: left;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden; /* Prevent content overflow */
+    }
+
+    .ui-listview li:last-child {
+      margin-bottom: 0 !important; /* Remove margin from last item */
+    }
+
+    .ui-listview li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .ui-listview img {
+      max-width: 80px;
+      max-height: 80px;
+      border-radius: 50%;
+      margin: 10px;
+      float: left;
+    }
+
+    .ui-listview h3 {
+      font-size: 20px;
+      margin: 5px 0;
+      color: black;
+    }
+
+    .ui-listview p {
+      font-size: 16px;
+      margin: 5px 0;
+      color: black;
+    }
+
+    /* Override jQuery Mobile default styles for listview buttons */
+    .ui-listview .ui-btn {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .ui-listview .ui-btn-icon-right:after {
+      display: none !important; /* Remove expand/collapse icons */
+    }
+  </style>
+  <script>
+    // Animate team member entries on page load
+    $(document).on("pagecreate", "#about", function() {
+      $(".ui-listview li").each(function(index) {
+        $(this).delay(200 * index).animate({ opacity: 1, top: 0 }, 500);
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div data-role="page" id="about">
+
+  <!-- Header -->
+  <div data-role="header" data-position="fixed" class="custom-header">
+    <div class="nav-bar">
+      <div class="nav-content">
+        <div class="logo-container">
+          <img src="logo_psp.png" alt="Logo" />
+          <span>JABATAN TEKNOLOGI MAKLUMAT & KOMUNIKASI</span>
+        </div>
+        <div class="nav-links">
+          <a href="home.html">HOME</a>
+          <a href="about.html" class="ui-btn-active">ABOUT</a>
+          <a href="projects.html">PROJECTS</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media Sidebar -->
+  <div class="social-sidebar">
+    <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+    <a href="#"><img src="github.png" alt="GitHub"></a>
+    <a href="#"><img src="twitter.png" alt="Twitter"></a>
+    <a href="#"><img src="youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="instagram.png" alt="Instagram"></a>
+</div>
+
+  <!-- Main Content -->
+  <div role="main" class="ui-content">
+    <div class="team-section">
+      <h2>Our Team</h2>
+      <ul data-role="listview" data-inset="true">
+        <li style="opacity: 0; top: 20px;">
+          <img src="member1.jpg" alt="Member 1" />
+          <h3>NUR SYASYA BINTI MD YAZID</h3>
+          <p><strong>Position:</strong> Head of Department</p>
+          <p><strong>Contact:</strong> +60198897590</p>
+        </li>
+        <li style="opacity: 0; top: 20px;">
+          <img src="member2.jpg" alt="Member 2" />
+          <h3>NUR AINA BINTI MAZLAN</h3>
+          <p><strong>Position:</strong> Program Head (Software Track)</p>
+          <p><strong>Contact:</strong> +601124135514</p>
+        </li>
+        <li style="opacity: 0; top: 20px;">
+          <img src="member3.jpg" alt="Member 3" />
+          <h3>AFRIENA ATIQAH BINTI KHEIRUL HISYAM</h3>
+          <p><strong>Position:</strong> Program Head (Network Track)</p>
+          <p><strong>Contact:</strong> +601152220250</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="custom-footer">
+    <h4>Copyright © DDT4C S2 2024/2025. All rights reserved.</h4>
+  </div>
+
+</div>
+
+</body>
+</html>
+

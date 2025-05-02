@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTMK - Contact</title>
+
+    <!-- jQuery Mobile CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        /* General page styling */
+        body,
+        .ui-content {
+            margin: 0;
+            padding: 0;
+            background-image: url('background_image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Fade-in animation for page load */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header styling with gradient background */
+        .custom-header {
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            color: white !important;
+            border: none !important;
+        }
+
+        /* Navigation bar styling */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Container for logo and nav links */
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+
+        /* Logo container styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-container span {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Navigation links styling */
+        .nav-links a {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 6px 10px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Social Media Sidebar */
+        .social-sidebar {
+            position: fixed;
+            top: 65%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            border-radius: 0 10px 10px 0;
+            padding: 10px 5px;
+        }
+
+        .social-sidebar a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.2s;
+        }
+
+        .social-sidebar a img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        .custom-footer {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 140px);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            padding-bottom: 10px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .contact-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+        }
+
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Enhanced Button Styling */
+        .contact-buttons {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-section .ui-btn {
+            margin: 20px auto;
+            padding: 18px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb) !important;
+            border: none !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        .contact-section .ui-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #fbc2eb, #a18cd1) !important;
+            animation: none;
+        }
+
+        .contact-section .ui-btn:active {
+            transform: translateY(1px);
+        }
+
+        .contact-section .ui-icon {
+            margin-right: 15px !important;
+            font-size: 24px;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Staggered button animations */
+        .contact-section .ui-btn:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .contact-section .ui-btn:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .contact-section .ui-btn:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 30px 15px;
+            }
+
+            .contact-section h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .contact-section .ui-btn {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+        }
+    </style>
+    <script>
+        $(document).on("pagecreate", "#contact", function () {
+            console.log("Contact page initialized");
+        });
+    </script>
+</head>
+
+<body>
+    <div data-role="page" id="contact">
+        <!-- Header -->
+        <div data-role="header" data-position="fixed" class="custom-header">
+            <div class="nav-bar">
+                <div class="nav-content">
+                    <div class="logo-container">
+                        <img src="logo_psp.png" alt="Logo" />
+                        <span>JABATAN TEKNOLOGI MAKLUMAT & KOMUNIKASI</span>
+                    </div>
+                    <div class="nav-links">
+                        <a href="home.html">HOME</a>
+                        <a href="about.html">ABOUT</a>
+                        <a href="projects.html">PROJECTS</a>
+                        <a href="contact.html" class="ui-btn-active">CONTACT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media Sidebar -->
+        <div class="social-sidebar">
+            <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="github.png" alt="GitHub"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+
+        <!-- Main Content -->
+        <div data-role="main" class="ui-content">
+            <div class="contact-section">
+                <h2>Contact Us</h2>
+
+                <div class="contact-buttons">
+                    <a href="tel:+60123456789" class="ui-btn ui-btn-b ui-corner-all ui-icon-phone ui-btn-icon-left">
+                        <span>Call Us</span>
+                    </a>
+
+                    <a href="mailto:jtmk@psp.edu.my"
+                        class="ui-btn ui-btn-b ui-corner-all ui-icon-mail ui-btn-icon-left">
+                        <span>Email us</span>
+                    </a>
+
+                    <a href="https://wa.me/60123456789"
+                        class="ui-btn ui-btn-b ui-corner-all ui-icon-comment ui-btn-icon-left" target="_blank">
+                        <span>WhatsApp us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-position="fixed" class="custom-footer">
+            <h4>Copyright © DDT4C S2 2024/2025. All rights reserved.</h4>
+        </div>
+    </div>
+</body>
+
+</html>
